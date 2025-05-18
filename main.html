@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Ink Tattoo - Профессиональный тату-салон</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605649487212-47bdab064df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .tattoo-type {
+            transition: all 0.3s ease;
+        }
+
+        .tattoo-type:hover {
+            background-color: #111827;
+            color: white;
+        }
+
+        .active-tab {
+            border-bottom: 3px solid #d946ef;
+            color: #d946ef;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-black text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-bolt text-purple-500 text-2xl mr-2"></i>
+                    <h1 class="text-2xl font-bold">BLACK INK <span class="text-purple-500">TATTOO</span></h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-purple-400 transition">Главная</a>
+                    <a href="#about" class="hover:text-purple-400 transition">О нас</a>
+                    <a href="#artists" class="hover:text-purple-400 transition">Художники</a>
+                    <a href="#gallery" class="hover:text-purple-400 transition">Галерея</a>
+                    <a href="#services" class="hover:text-purple-400 transition">Услуги</a>
+                    <a href="#contact" class="hover:text-purple-400 transition">Контакты</a>
+                </nav>
+                <button class="md:hidden text-2xl" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="hover:text-purple-400 transition">Главная</a>
+                    <a href="#about" class="hover:text-purple-400 transition">О нас</a>
+                    <a href="#artists" class="hover:text-purple-400 transition">Художники</a>
+                    <a href="#gallery" class="hover:text-purple-400 transition">Галерея</a>
+                    <a href="#services" class="hover:text-purple-400 transition">Услуги</a>
+                    <a href="#contact" class="hover:text-purple-400 transition">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">ПРЕВРАТИ СВОЮ КОЖУ В ИСКУССТВО</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Профессиональные татуировки от лучших мастеров города в стерильных условиях</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Записаться на консультацию
+                </a>
+                <a href="#gallery" class="bg-transparent hover:bg-white hover:text-black border-2 border-white text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Посмотреть работы
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">О НАШЕМ САЛОНЕ</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://yandex-images.clstorage.net/5kMf2c196/5fb05a167/BhXlIxSmwPossM0yqoKhCOVcDWT66OAztz2lAdxl-1TpPaLH2Lksi_nz-DiiM4CzHwrUwCG7xLD17MTdpsIe51JdpS9ti5HndbWVd4eqjFH0bQhcIhhErq8RlUzAKRP5Wb0aa2AUtUIICvl9_3KpmiJn_X2d-pngWdE1yKcrXrvOdbCanaYU-ng8qcaH5tmkONglTIJY3MIHEWVwSM1_tbVZynf45LWK8JINRcvSoee6Lz1FcOLN5DWxsVzjS_r7Gn0k3o3K8JJsROmqTwIdyMCwTfACPFCaS1lpSCjZ0wE1Faqn1NgJQpiSEdkXaqFrrodFkUw-JXg53UXQ90tKQ2pdFNZN8gBusOjFuuOquZw4dLmwXqTkxguBUezwVfcVBTFeT4xsGTq4Fn3x29LxZ_JzwZX44unoxblVJG-bOn9KAcDmOYaMenxYRbLLvq2kZAz1bE7kcGqnielwXFVzIe2ZnluYaFXy6IL5xdsCeZteC0WNqFpBjHXhXYz3K5p7Ms3skpXalCYMxPneR5pFKDQAIXSWYNxWGyFhXPxZXx2J6fbLhHjVnkSm9XWnooHPBoup6dAykdBl-akIl6vSO7ZZuHJNKlR6QLzRttuOAZQc-N2kGqCs7teB0fS4rTulab0-f7zoBUpoUkFdj1oVS3Jn8ZG4Ot3UyfENqO9_IsN64SzaSULQ7nz8ccpHArEIIKDZtBLcNH7rgaH4AG1TbdGRntsUSMHCeFp1af8i6bNKTykpNOoFsK3ZrSxTw847xmloXk3OYCpI3FHWSxKJyKAMbfTiIOCa2xEV1FzRP825darH6Ih5DgiuoTkn-vGnevedMYDqkXStcV0Ir1f6_0rNQH69BhT-tEAZvv-2MZSguF38YlRUFl-J7ZBk8cfJHWHS29TApUZ4NsUpU0qFS6p_OdFYtlX0Md2tOF_Pst-GGchu5cZk5iT4HbLbPkGQwHBhcKpA2Nor1fVE_PVI"
+                         alt="Наш салон" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Black Ink Tattoo - это больше чем просто тату-салон</h3>
+                    <p class="text-gray-700 mb-4">Мы создаем уникальные произведения искусства на вашей коже. Наш салон работает с 2010 года и за это время мы сделали более 5000 татуировок.</p>
+                    <p class="text-gray-700 mb-6">Мы используем только профессиональное оборудование и качественные пигменты. Все работы выполняются в стерильных условиях с соблюдением всех норм безопасности.</p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-600 mr-2 text-xl"></i>
+                            <span>Стерильные условия</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-600 mr-2 text-xl"></i>
+                            <span>Качественные материалы</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-600 mr-2 text-xl"></i>
+                            <span>Индивидуальный подход</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-600 mr-2 text-xl"></i>
+                            <span>Гарантия качества</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <div class="flex items-start">
+                            <i class="fas fa-quote-left text-purple-600 text-3xl mr-4 mt-1"></i>
+                            <div>
+                                <p class="italic text-gray-700 mb-2">"Татуировка - это не просто рисунок на коже, это история, которую вы носите с собой всю жизнь. Мы помогаем сделать эту историю красивой."</p>
+                                <p class="font-semibold">— Макс, основатель салона</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">НАШИ МАСТЕРА</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Наши художники - профессионалы с многолетним опытом работы в различных стилях татуировки</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Artist 1 -->
+                <div class="artist-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80"
+                         alt="Мастер Анна" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Анна</h3>
+                        <p class="text-purple-600 font-semibold mb-3">Реализм, Акварель</p>
+                        <p class="text-gray-600 mb-4">Специализируется на портретах и реалистичных изображениях. Опыт работы - 8 лет.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Реализм</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Акварель</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Портреты</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="artist-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                         alt="Мастер Макс" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Макс</h3>
+                        <p class="text-purple-600 font-semibold mb-3">Традишнл, Олдскул</p>
+                        <p class="text-gray-600 mb-4">Основатель салона. Специализируется на классических американских и японских стилях. Опыт - 12 лет.</p>
+                        <div class="flex space-x-2 flex-wrap">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Традишнл</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Олдскул</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Японский</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="artist-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                         alt="Мастер Иван" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Иван</h3>
+                        <p class="text-purple-600 font-semibold mb-3">Геометрия, Лайнворк</p>
+                        <p class="text-gray-600 mb-4">Мастер точных линий и геометрических композиций. Опыт работы - 6 лет.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Геометрия</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Лайнворк</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Минимализм</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">НАШИ РАБОТЫ</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+
+            <!-- Gallery Tabs -->
+            <div class="flex justify-center mb-12 overflow-x-auto">
+                <div class="flex space-x-1 md:space-x-4">
+                    <button class="tab-btn px-4 py-2 font-medium active-tab" data-category="all">Все работы</button>
+                    <button class="tab-btn px-4 py-2 font-medium" data-category="realism">Реализм</button>
+                    <button class="tab-btn px-4 py-2 font-medium" data-category="traditional">Традишнл</button>
+                    <button class="tab-btn px-4 py-2 font-medium" data-category="geometric">Геометрия</button>
+                    <button class="tab-btn px-4 py-2 font-medium" data-category="watercolor">Акварель</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Gallery items will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">НАШИ УСЛУГИ</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Мы предлагаем полный спектр услуг, связанных с татуировками</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="tattoo-type bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-paint-brush text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Индивидуальный дизайн</h3>
+                    <p class="text-gray-600">Создаем уникальный эскиз специально для вас с учетом всех пожеланий и анатомических особенностей</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="tattoo-type bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tint text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Коррекция татуировок</h3>
+                    <p class="text-gray-600">Исправляем неудачные татуировки, перекрываем старые работы, восстанавливаем выцветшие элементы</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="tattoo-type bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-times-circle text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Удаление татуировок</h3>
+                    <p class="text-gray-600">Профессиональное удаление нежелательных татуировок с помощью лазера последнего поколения</p>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">СТОИМОСТЬ УСЛУГ</h3>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b">
+                                    <th class="text-left py-4 px-4">Услуга</th>
+                                    <th class="text-right py-4 px-4">Стоимость</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-4 px-4">Консультация</td>
+                                    <td class="text-right py-4 px-4">Бесплатно</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-4 px-4">Разработка индивидуального эскиза</td>
+                                    <td class="text-right py-4 px-4">от 2000 ₽</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-4 px-4">Татуировка (за час работы)</td>
+                                    <td class="text-right py-4 px-4">от 5000 ₽</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-4 px-4">Коррекция татуировки</td>
+                                    <td class="text-right py-4 px-4">от 3000 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4">Удаление татуировки (за сеанс)</td>
+                                    <td class="text-right py-4 px-4">от 4000 ₽</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-8 bg-purple-50 p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-circle text-purple-600 text-2xl mr-4"></i>
+                            <p class="text-gray-700">Точная стоимость рассчитывается индивидуально после консультации с мастером и зависит от сложности работы, размера и места нанесения.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-purple-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">ОТЗЫВЫ КЛИЕНТОВ</h2>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-purple-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Клиент">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Алина</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Делала портрет кошки у Анны. Получилось просто потрясающе! Все детали проработаны до мелочей. Салон очень чистый, все стерильно. Обязательно вернусь за новой татуировкой!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-purple-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Клиент">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Дмитрий</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Макс сделал мне японский рукав. Работал аккуратно, объяснял все этапы. Татуировка зажила быстро и без проблем. Уже рекомендовал салон друзьям!"</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-purple-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/63.jpg" alt="Клиент">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Екатерина</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Делала у Ивана геометрическую композицию на предплечье. Очень довольна точностью линий и симметрией. Мастер настоящий профессионал своего дела!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">КОНТАКТЫ</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Запишитесь на консультацию или задайте интересующие вас вопросы</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Свяжитесь с нами</h3>
+
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Ваше имя</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Телефон</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Сообщение</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">Наши контакты</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-purple-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Адрес</h4>
+                                    <p class="text-gray-700">г. Москва, ул. Татуировочная, д. 13</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-purple-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Телефон</h4>
+                                    <p class="text-gray-700">+7 (999) 123-45-67</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-purple-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Email</h4>
+                                    <p class="text-gray-700">info@blackinktattoo.ru</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-purple-600 text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Часы работы</h4>
+                                    <p class="text-gray-700">Пн-Пт: 10:00 - 20:00</p>
+                                    <p class="text-gray-700">Сб-Вс: 11:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-bold text-lg mb-4">Мы в социальных сетях</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white hover:bg-purple-700 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white hover:bg-purple-700 transition">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white hover:bg-purple-700 transition">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white hover:bg-purple-700 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.373789497729!2d37.618856315930474!3d55.75321998055306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7f3477b1b8716a8!2sRed%20Square!5e0!3m2!1sen!2sru!4v1623750000000!5m2!1sen!2sru"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bolt text-purple-500 text-2xl mr-2"></i>
+                        <h2 class="text-2xl font-bold">BLACK INK <span class="text-purple-500">TATTOO</span></h2>
+                    </div>
+                    <p class="text-gray-400 max-w-xs">Профессиональный тату-салон в Москве. Качественные татуировки от лучших мастеров.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4">Навигация</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition">О нас</a></li>
+                            <li><a href="#artists" class="text-gray-400 hover:text-white transition">Художники</a></li>
+                            <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Галерея</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition">Услуги</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-4">Услуги</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Индивидуальный дизайн</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Коррекция татуировок</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Удаление татуировок</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Консультация</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold mb-4">Контакты</h3>
+                        <ul class="space-y-2">
+                            <li class="text-gray-400">г. Москва, ул. Татуировочная, д. 13</li>
+                            <li class="text-gray-400">+7 (999) 123-45-67</li>
+                            <li class="text-gray-400">info@blackinktattoo.ru</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Black Ink Tattoo. Все права защищены.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-vk text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Gallery filter
+        const galleryItems = [
+            {
+                image: 'https://i.pinimg.com/736x/ff/50/60/ff5060c4a4c41959b9a88bccecdb67a9.jpg',
+                category: 'realism',
+                title: 'Реалистичный портрет',
+                artist: 'Анна'
+            },
+            {
+                image: 'https://xn--80aafxlwnnbk.xn--p1ai/upload_data/7446/upld6xk3N9.jpg',
+                category: 'traditional',
+                title: 'Классический олдскул',
+                artist: 'Макс'
+            },
+            {
+                image: 'https://i.pinimg.com/736x/69/ee/4d/69ee4d05edfa1c933b49b9b4613c2ccf.jpg',
+                category: 'geometric',
+                title: 'Геометрическая композиция',
+                artist: 'Иван'
+            },
+            {
+                image: 'https://i.pinimg.com/originals/eb/9a/43/eb9a433cfff414f2c82c9ae7cc90eeb5.jpg',
+                category: 'watercolor',
+                title: 'Акварельный цветок',
+                artist: 'Анна'
+            },
+            {
+                image: 'https://avatars.mds.yandex.net/i?id=b4862995c0d5f9c42ad693790bd7bf17_l-5209766-images-thumbs&n=13',
+                category: 'geometric',
+                title: 'Симметричный узор',
+                artist: 'Иван'
+            },
+            {
+                image: 'https://i.pinimg.com/originals/8c/a9/16/8ca9163749576f89eb5794019d8e3967.jpg',
+                category: 'traditional',
+                title: 'Японский дракон',
+                artist: 'Макс'
+            },
+            {
+                image: 'https://i.pinimg.com/736x/8b/01/4f/8b014f1d8b2dd91e0d620818402811ef.jpg',
+                category: 'realism',
+                title: 'Портрет собаки',
+                artist: 'Анна'
+            },
+            {
+                image: 'https://i.pinimg.com/736x/f9/f6/72/f9f67247e56b65d20d27a73f44e1767b.jpg',
+                category: 'watercolor',
+                title: 'Акварельный пейзаж',
+                artist: 'Анна'
+            },
+            {
+                image: 'https://avatars.dzeninfra.ru/get-zen_doc/1881575/pub_5ded0e0c433ecc00aee8e8f9_5ded19c698fe7900b0eaf64b/scale_1200',
+                category: 'traditional',
+                title: 'Якорь в стиле олдскул',
+                artist: 'Макс'
+            }
+        ];
+
+        function renderGallery(category = 'all') {
+            const galleryGrid = document.getElementById('gallery-grid');
+            galleryGrid.innerHTML = '';
+
+            const filteredItems = category === 'all'
+                ? galleryItems
+                : galleryItems.filter(item => item.category === category);
+
+            filteredItems.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item bg-white rounded-lg overflow-hidden shadow-lg';
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg">${item.title}</h3>
+                        <p class="text-purple-600">Мастер: ${item.artist}</p>
+                    </div>
+                `;
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Initialize gallery
+        renderGallery();
+
+        // Tab click handlers
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active-tab');
+                });
+
+                // Add active class to clicked button
+                this.classList.add('active-tab');
+
+                // Filter gallery
+                const category = this.getAttribute('data-category');
+                renderGallery(category);
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Спасибо, ${name}! Ваша заявка принята. Мы свяжемся с вами по номеру ${phone} в ближайшее время.`);
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
